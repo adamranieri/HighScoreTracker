@@ -9,7 +9,7 @@ import java.util.List;
 
 public class App {
 
-    static List<Score> scoreList = new ArrayList();
+    static List<Score> scoreList = new ArrayList<>();
     static Gson gson = new Gson();
 
     public static void main(String[] args) {
