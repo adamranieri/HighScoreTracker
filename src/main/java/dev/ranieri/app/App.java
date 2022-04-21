@@ -23,10 +23,19 @@ public class App {
         app.post("/scores", context -> {
             String json = context.body();
             Score score = gson.fromJson(json, Score.class);
-            scoreList.add(score);
-            context.status(201);
-            context.result("Score was added!!!");
+
+            if(score.getPoints() <0){
+                context.status(400);
+                context.result("Score cannot be negative");
+            }else{
+                scoreList.add(score);
+                context.status(201);
+                context.result("Score was added!!!");
+            }
+
         });
+
+
 
         app.start(5000);
 
